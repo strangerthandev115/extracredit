@@ -14,9 +14,9 @@ void addRows(void* array, int colTotal, char arrType)
 
         if (arrType == 'I')
         {
-            int (*intArray)[colTotal] = (int(*)[colTotal])array;
-            int intResults[RESROW][halfCol];
-            for (int i = 0; i < RESROW; i++)
+            int **intArray = (int**)array;
+            int intResults[MAXROW][halfCol];
+            for (int i = 0; i < MAXROW; i++)
             {
                 for (int j = 0; j < halfCol; j++)
                 {
@@ -26,9 +26,9 @@ void addRows(void* array, int colTotal, char arrType)
          }
         else if(arrType == 'F')
         {
-            float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-            float floatResults[RESROW][halfCol];
-            for (int i = 0; i < RESROW; i++)
+            float **floatArray = (float**)array;
+            float floatResults[MAXROW][halfCol];
+            for (int i = 0; i < MAXROW; i++)
             {
                 for (int j = 0; j < halfCol; j++)
                 {
@@ -38,9 +38,9 @@ void addRows(void* array, int colTotal, char arrType)
         }
         else if (arrType == 'C')
         {
-            char (*charArray)[colTotal] = (char(*)[colTotal])array;
-            char charResults[RESROW][halfCol];
-            for (int i = 0; i < RESROW; i++)
+            char **charArray = (char**)array;
+            char charResults[MAXROW][halfCol];
+            for (int i = 0; i < MAXROW; i++)
             {
                 for (int j = 0; j < halfCol; j++)
                 {
@@ -52,12 +52,11 @@ void addRows(void* array, int colTotal, char arrType)
 
 void addColumns(void* array, int colTotal, char arrType)
 {
-    int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                int **intArray = (int**)array;
+                int intResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -67,9 +66,9 @@ void addColumns(void* array, int colTotal, char arrType)
          }
         else if(arrType == 'F')
         {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                float **floatArray = (float**)array;
+                float floatResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -79,9 +78,9 @@ void addColumns(void* array, int colTotal, char arrType)
          }
         else if (arrType == 'C')
         {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                char **charArray = (char**)array;
+                char charResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -96,9 +95,9 @@ void multiplyRows(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                int **intArray = (int**)array;
+                int intResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -108,9 +107,9 @@ void multiplyRows(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                float **floatArray = (float**)array;
+                float floatResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -120,9 +119,9 @@ void multiplyRows(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                char **charArray = (char**)array;
+                char charResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -137,9 +136,9 @@ void multiplyColumns(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                int **intArray = (int**)array;
+                int intResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -149,9 +148,9 @@ void multiplyColumns(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                float **floatArray = (float**)array;
+                float floatResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -161,9 +160,9 @@ void multiplyColumns(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                char **charArray = (char**)array;
+                char charResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -178,9 +177,9 @@ void subtractRows(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                int **intArray = (int**)array;
+                int intResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -190,9 +189,9 @@ void subtractRows(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                float **floatArray = (float**)array;
+                float floatResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -202,9 +201,9 @@ void subtractRows(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                char **charArray = (char**)array;
+                char charResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -219,9 +218,9 @@ void subtractColumns(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                int **intArray = (int**)array;
+                int intResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -231,9 +230,9 @@ void subtractColumns(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                float **floatArray = (float**)array;
+                float floatResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -243,9 +242,9 @@ void subtractColumns(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                char **charArray = (char**)array;
+                char charResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -260,9 +259,9 @@ void divideRows(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                int **intArray = (int**)array;
+                int intResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -272,9 +271,9 @@ void divideRows(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                float **floatArray = (float**)array;
+                float floatResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -284,9 +283,9 @@ void divideRows(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < RESROW; i++)
+                char **charArray = (char**)array;
+                char charResults[MAXROW][halfCol];
+                for (int i = 0; i < MAXROW; i++)
                 {
                     for (int j = 0; j < halfCol; j++)
                     {
@@ -301,9 +300,9 @@ void divideColumns(void* array, int colTotal, char arrType)
     int halfCol = colTotal/2;
         if (arrType == 'I')
         {
-                int (*intArray)[colTotal] = (int(*)[colTotal])array;
-                int intResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                int **intArray = (int**)array;
+                int intResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -313,9 +312,9 @@ void divideColumns(void* array, int colTotal, char arrType)
          }
             else if(arrType == 'F')
             {
-                float (*floatArray)[colTotal] = (float(*)[colTotal])array;
-                float floatResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                float **floatArray = (float**)array;
+                float floatResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -325,9 +324,9 @@ void divideColumns(void* array, int colTotal, char arrType)
          }
             else if (arrType == 'C')
             {
-                char (*charArray)[colTotal] = (char(*)[colTotal])array;
-                char charResults[RESROW][halfCol];
-                for (int i = 0; i < halfCol; i++)
+                char **charArray = (char**)array;
+                char charResults[RESROW][colTotal];
+                for (int i = 0; i < colTotal; i++)
                 {
                     for (int j = 0; j < RESROW; j++)
                     {
@@ -376,22 +375,26 @@ int main()
             // Close file
             fclose(fp);
             // Run benchmark functions
-            addRows(benchmark,colTotal,dataType);
-            addColumns(benchmark,colTotal,dataType);
-            multiplyRows(benchmark,colTotal,dataType);
-            multiplyColumns(benchmark,colTotal,dataType);
-            subtractRows(benchmark,colTotal,dataType);
-            subtractColumns(benchmark,colTotal,dataType);
-            divideRows(benchmark,colTotal,dataType);
-            divideColumns(benchmark,colTotal,dataType);
-            // Free memory
-            for (int i = 0; i < MAXROW; i++)
-            free(benchmark[i]);
+            for (int i = 0; i < 25000; i++)
+            {
+                addRows(benchmark,colTotal,dataType);
+                addColumns(benchmark,colTotal,dataType);
+                multiplyRows(benchmark,colTotal,dataType);
+                multiplyColumns(benchmark,colTotal,dataType);
+                subtractRows(benchmark,colTotal,dataType);
+                subtractColumns(benchmark,colTotal,dataType);
+                divideRows(benchmark,colTotal,dataType);
+                divideColumns(benchmark,colTotal,dataType);
+            }
         }
         else if (dataType == 'F')
         {
             // Create Array
-            float benchmark[MAXROW][colTotal];
+            float *benchmark[MAXROW];
+            for (int i = 0; i < MAXROW; i++)
+            {
+                benchmark[i] = (float *)malloc(colTotal * sizeof(float));
+            }
             // Fill Array
             for (int rows = 0; rows < MAXROW; rows++)
             {
@@ -401,36 +404,46 @@ int main()
             // Close file
             fclose(fp);
             // Run benchmark functions
-            addRows(benchmark,colTotal,dataType);
-            addColumns(benchmark,colTotal,dataType);
-            multiplyRows(benchmark,colTotal,dataType);
-            multiplyColumns(benchmark,colTotal,dataType);
-            subtractRows(benchmark,colTotal,dataType);
-            subtractColumns(benchmark,colTotal,dataType);
-            divideRows(benchmark,colTotal,dataType);
-            divideColumns(benchmark,colTotal,dataType);
+            for (int i = 0; i < 25000; i++)
+            {
+                addRows(benchmark,colTotal,dataType);
+                addColumns(benchmark,colTotal,dataType);
+                multiplyRows(benchmark,colTotal,dataType);
+                multiplyColumns(benchmark,colTotal,dataType);
+                subtractRows(benchmark,colTotal,dataType);
+                subtractColumns(benchmark,colTotal,dataType);
+                divideRows(benchmark,colTotal,dataType);
+                divideColumns(benchmark,colTotal,dataType);
+            }
         }
         else if(dataType == 'C')
         {
             // Create Array
-            char benchmark[MAXROW][colTotal];
+            char *benchmark[MAXROW];
+            for (int i = 0; i < MAXROW; i++)
+            {
+                benchmark[i] = (char *)malloc(colTotal * sizeof(char));
+            }
             // Fill Array
             for (int rows = 0; rows < MAXROW; rows++)
             {
                 for (int columns = 0; columns < colTotal; columns++)
-                    fscanf(fp, "%c,", &benchmark[rows][columns]);
+                    fscanf(fp, " %c,", &benchmark[rows][columns]);
             }
             // Close file
             fclose(fp);
             // Run benchmark functions
-            addRows(benchmark,colTotal,dataType);
-            addColumns(benchmark,colTotal,dataType);
-            multiplyRows(benchmark,colTotal,dataType);
-            multiplyColumns(benchmark,colTotal,dataType);
-            subtractRows(benchmark,colTotal,dataType);
-            subtractColumns(benchmark,colTotal,dataType);
-            divideRows(benchmark,colTotal,dataType);
-            divideColumns(benchmark,colTotal,dataType);
+            for (int i = 0; i < 25000; i++)
+            {
+                addRows(benchmark,colTotal,dataType);
+                addColumns(benchmark,colTotal,dataType);
+                multiplyRows(benchmark,colTotal,dataType);
+                multiplyColumns(benchmark,colTotal,dataType);
+                subtractRows(benchmark,colTotal,dataType);
+                subtractColumns(benchmark,colTotal,dataType);
+                divideRows(benchmark,colTotal,dataType);
+                divideColumns(benchmark,colTotal,dataType);
+            }
         }
     return 0;
 }
